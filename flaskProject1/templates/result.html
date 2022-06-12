@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+#list {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#list td, #list th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#list tr:nth-child(even){background-color: #f2f2f2;}
+
+#list tr:hover {background-color: #ddd;}
+
+#list th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1>{{title}} Product Reviews</h1>
+
+<img src={{img}} width="200px" height="200px"/>
+
+<table id="list">
+  <tr>
+    <th>Review</th>
+    <th>Sentiment</th>
+    <th>Product Link</th>
+
+  </tr>
+{% for review, prediction in mylist %}
+    <tr>
+        <td>{{ review }}</td>
+        {% if prediction == 0 %}
+            <td>Negative</td>
+        {% else %}
+            <td>Positive</td>
+        {% endif %}
+        <td><a href={{url}}> Product </a> </td>
+    </tr>
+{% endfor %}
+</table>
+   <form action="/graph/" method="get">
+
+       <input type="hidden" class="form-control" placeholder="Enter your search"  name="q" id="q" value="{{fulldata}}">
+
+    <button class="btn" type="submit">View Graphical Representation</button>
+</form>
+</body>
+</html>

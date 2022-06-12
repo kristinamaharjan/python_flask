@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lists</title>
+</head>
+<body>
+
+{% for dat in forward_message %}
+    <div>
+        <span></span>
+        <ul>
+            {% for d in dat %}
+                <li> {{ d }} </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}
+
+
+</body>
+</html>
